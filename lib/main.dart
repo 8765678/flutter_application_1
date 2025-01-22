@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/HomePage.dart';
 import 'package:flutter_application_1/MainPageWidget.dart';
+import 'package:flutter_application_1/NewPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -117,6 +118,17 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
+            //ここから追加しました！
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const NewPage()),
+                );
+              },
+              child: const Text('Go to New Page'),
+            )
+            //ここまで追加しました！
           ],
         ),
       ),
