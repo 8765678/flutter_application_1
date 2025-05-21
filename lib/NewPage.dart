@@ -21,7 +21,7 @@ const List<Product> products = [
     id: '1',
     name: 'リンゴ',
     price: 100,
-    imageUrl: 'https://all-guide.com/wp-content/uploads/144834045_675.jpg',
+    imageUrl: 'assets/image/Apple.jpg',
   ),
   Product(
     id: '2',
