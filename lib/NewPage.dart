@@ -65,7 +65,7 @@ class NewPage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Image.network(product.imageUrl, height: 100),
+                Image.asset(product.imageUrl, height: 100),
                 Text(product.name,
                     style: const TextStyle(fontWeight: FontWeight.bold)),
                 Text('${product.price}円',
