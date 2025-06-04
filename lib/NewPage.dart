@@ -33,6 +33,24 @@ const List<Product> products = [
     price: 500,
     imageUrl: 'assets/images/meron.jpg',
   ),
+  Product(
+    id: '4',
+    name: 'ぶどう',
+    price: 300,
+    imageUrl: 'assets/images/grape.jpg',
+  ),
+  Product(
+    id: '5',
+    name: 'もも',
+    price: 350,
+    imageUrl: 'assets/images/peach.jpg',
+  ),
+  Product(
+    id: '6',
+    name: 'みかん',
+    price: 200,
+    imageUrl: 'assets/images/mikan.jpg',
+  ),
 ];
 
 class NewPage extends StatelessWidget {
@@ -89,10 +107,11 @@ class NewPage extends StatelessWidget {
                       const Icon(Icons.attach_money,
                           size: 18, color: Colors.green),
                       Text(
-                        '${product.price}',
+                        '${product.price}円',
                         style: const TextStyle(
                           fontSize: 16,
                           color: Colors.green,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ],
