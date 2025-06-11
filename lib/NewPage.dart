@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/models/cart_model.dart';
+import 'package:flutter_application_1/page/cart_page.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter_application_1/models/product.dart';
 
 class Product {
   final String id;
@@ -14,45 +18,6 @@ class Product {
   });
 }
 
-const List<Product> products = [
-  Product(
-    id: '1',
-    name: 'リンゴ',
-    price: 100,
-    imageUrl: 'assets/images/Apple.jpg',
-  ),
-  Product(
-    id: '2',
-    name: 'バナナ',
-    price: 150,
-    imageUrl: 'assets/images/banana.jpg',
-  ),
-  Product(
-    id: '3',
-    name: 'メロン',
-    price: 500,
-    imageUrl: 'assets/images/meron.jpg',
-  ),
-  Product(
-    id: '4',
-    name: 'ぶどう',
-    price: 300,
-    imageUrl: 'assets/images/grape.jpg',
-  ),
-  Product(
-    id: '5',
-    name: 'もも',
-    price: 350,
-    imageUrl: 'assets/images/peach.jpg',
-  ),
-  Product(
-    id: '6',
-    name: 'みかん',
-    price: 200,
-    imageUrl: 'assets/images/mikan.jpg',
-  ),
-];
-
 class NewPage extends StatelessWidget {
   const NewPage({super.key});
 
@@ -63,6 +28,17 @@ class NewPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('商品一覧'),
         backgroundColor: Colors.green[700],
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.shopping_cart),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const CartPage()),
+              );
+            },
+          )
+        ],
       ),
       body: GridView.builder(
         padding: const EdgeInsets.all(12),
@@ -118,6 +94,10 @@ class NewPage extends StatelessWidget {
                   ),
                   ElevatedButton.icon(
                     onPressed: () {
+                      final cart =
+                          Provider.of<CartModel>(context, listen: false);
+                      cart.add(product);
+
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(content: Text('${product.name} をカートに追加しました')),
                       );
