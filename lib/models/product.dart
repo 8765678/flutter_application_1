@@ -12,7 +12,7 @@ class Product {
   });
 }
 
-const List<Product> products = [
+const List<Product> fruits = [
   Product(
     id: '1',
     name: 'リンゴ',
@@ -49,4 +49,11 @@ const List<Product> products = [
     price: 200,
     imageUrl: 'assets/images/mikan.jpg',
   ),
+];
+
+const List<Product> vegetables = [
+  Product(
+      id: '7', name: 'にんじん', price: 120, imageUrl: 'assets/images/carrot.jpg'),
+  Product(
+      id: '8', name: 'キャベツ', price: 180, imageUrl: 'assets/images/cabbage.jpg'),
 ];
